@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { api } from "./api/Api";
+import "./App.css";
+import Movies from "./components/movies/Movies";
+import Preloader from "./components/Preloader/Preloader";
+import Search from "./components/search/Search";
+import Slider from "./components/slider/Slider";
+
 
 function App() {
+ 
+  console.log('render')
+  let [isLoaded, setIsLoaded] = useState(false);
+  let [movies, setMovies] = useState([]);
+  useEffect(()=>{
+    api('iron man').then(res=>{
+      setMovies(res.data);
+      setIsLoaded(true);
+    })
+  },[])
+  let SearchApi = async (search) => {
+    setIsLoaded(false);
+    setMovies([]);
+    let res = await api(search);
+    setMovies(res.data);
+    setIsLoaded(true);
+  };
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Search SearchApi={SearchApi} />
+     
+        
+{isLoaded ? (
+       <Slider  movies={movies.Search}/>
+      ) : (
+        <Preloader/>
+      )}
+    
+        
+  
+      </div>
+      
+    
   );
 }
 

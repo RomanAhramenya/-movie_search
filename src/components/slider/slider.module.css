@@ -1,0 +1,44 @@
+.button{
+    position: absolute;
+    top: 17vw;
+    right: 5vw;
+}
+.button button,.buttonLeft button {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+    background: rgba(16, 184, 11, 0.568);
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.2s;
+}
+.button button:hover,.buttonLeft button:hover{
+    box-shadow: 0 0 5px black;
+
+}
+.buttonLeft{
+    position: absolute;
+    top: 17vw;
+    left: 5vw;
+}
+@media (max-width: 800px){
+    .button,.buttonLeft{
+        top:20vw;
+    }
+    .button button,.buttonLeft button {
+        font-size: 35px;
+        padding: 10px;
+    }
+    
+}
+@media (max-width: 600px){
+    .button,.buttonLeft{
+        top:25vw;
+    }
+}
+@media (max-width: 460px){
+    .button,.buttonLeft{
+        top:35vw;
+    }
+}

@@ -1,0 +1,26 @@
+.wraper{
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+}
+.wraper input,.wraper button {
+    cursor: pointer;
+    font-size: 25px;
+    background: rgba(100, 98, 98, 0.582);
+    padding: 10px;
+    border: none;
+    transition: all 0.2s;
+    border-radius: 10px;
+}
+.wraper button{
+    margin-left: 20px;
+    background: rgba(4, 168, 18, 0.753);
+}
+.wraper button:hover{
+    background: darkgreen;
+}
+@media (max-width: 800px){
+    .wraper{
+        width: 100%;
+    }
+}
